@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+
+    <!-- 
+============================================================================================================
+=                                           output files definition                                        =
+=                                            Define your own files                                         =
+=                                         put the variables you want...                                    =
+============================================================================================================
+    -->
+    
+    <file_definition type="multiple_file" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="10d" min_digits="4">
+    
+      <!--file_group id="1ts" output_freq="1ts"  output_level="10" enabled=".TRUE."/--> <!-- 1 time step files -->
+
+      <file_group id="1h" output_freq="1h"  output_level="10" enabled=".TRUE."/> <!-- 1h files -->
+
+      <file_group id="2h" output_freq="2h"  output_level="10" enabled=".TRUE."/> <!-- 2h files -->
+
+      <file_group id="3h" output_freq="3h"  output_level="10" enabled=".TRUE."/> <!-- 3h files -->     
+
+      <file_group id="4h" output_freq="4h"  output_level="10" enabled=".TRUE."/> <!-- 4h files -->
+
+      <file_group id="6h" output_freq="6h"  output_level="10" enabled=".TRUE."/> <!-- 6h files -->     
+
+      <file_group id="1ts" output_freq="1ts"  output_level="10" enabled=".TRUE."> <!-- 1d files -->
+
+	<file id="file1" name_suffix="_grid_T" description="ocean T grid variables" >
+		    <!--field field_ref="e3t"                           /-->
+		    <field field_ref="toce"         name="votemper"  />   <!--   operation="instant" freq_op="1d" > @toce_e3t / @e3t </field-->
+		    <field field_ref="soce"         name="vosaline"  />    <!--operation="instant" freq_op="1d" > @soce_e3t / @e3t </field-->
+		    <!--field field_ref="mldkz5"       name="somixhgt"  />
+		    <field field_ref="empmr"        name="sowaflup"  />
+		    <field field_ref="wspd"         name="sowindsp"  />
+		    <field field_ref="qsr"          name="soshfldo"  /-->
+
+	</file>
+
+	  <file id="file2" name_suffix="_grid_W" description="ocean W grid variables" >
+		    <!--field field_ref="e3w" /-->
+		  <field field_ref="avt"    />  <!--      name="voddmavs"     /-->
+
+		    <!--field field_ref="wocetr_eff"   name= "wocetr_eff"  /-->
+	  </file>
+
+
+        <file id="file3" name_suffix="_ptrc_T" description="Pisces variables" >
+          <field field_ref="PHY"     name="nano_phyto"  />
+          <field field_ref="PHY2"     name="diatoms" />
+          <field field_ref="ZOO"     name="microzoo" />
+          <field field_ref="ZOO2"     name="mesozoo" />
+          <field field_ref="NO3"     name="NO3" />
+          <field field_ref="NH4"     name="NH4" />
+          <field field_ref="DOC"     name="DOM" />
+          <field field_ref="PO4"     name="PO4" />
+          <field field_ref="Si"     name="Si" />
+          <field field_ref="Fer"     name="Fer" />
+          <field field_ref="POC"     name="POC" />
+          <field field_ref="GOC"     name="GOC" />
+          <field field_ref="DSi"    name="DSi" />
+          <field field_ref="DFe"    name="DFe" />
+          <field field_ref="NFe"    name="phyFe" />
+          <field field_ref="BFe"    name="GOMFe" />
+          <field field_ref="SFe"    name="POMFe" />
+          <field field_ref="NCHL"    name="phyCh" />
+          <field field_ref="DCHL"    name="DCh" />
+          <field field_ref="CaCO3"    name="GOMCal" />
+          <field field_ref="DIC"    name="CarDic" />
+          <field field_ref="Alkalini"    name="CarAlk" />
+          <field field_ref="GSi"    name="GOMSi" />
+          <field field_ref="O2"    name="O2" />
+
+  	</file>
+
+	<file id="file4" name_suffix="_diad_T" description="additional lobster diagnostics" >
+
+		<!--field field_ref="temper"     name="tem_pisces" /-->
+		<!--field field_ref="avt_top"     name="avt_top" /-->
+
+	   <!--****************/   Optics /******************** -->
+		<!--field field_ref="PAR"    name="PAR" />
+		<field field_ref="PARDM"   name="etot_ndcy" /-->
+		<!--field field_ref="xdiss"  name="xdiss" /-->
+		<!--field field_ref="Heup"  name="heup" />
+		<field field_ref="Heup_01"  name="heup_01" /--> 
+		<!--field field_ref="qsr_mean"  name="qsr_mean" />
+		<field field_ref="qsr"  name="qsr" />
+		<field field_ref="pqsr100" name="pqsr100" />
+		<field field_ref="pe1"  name="pe1" />
+		<field field_ref="pe2"  name="pe2" />
+		<field field_ref="pe3"  name="pe3" /-->
+		<!--field field_ref="gdepw" name="gdepw" /-->
+		<!--field field_ref="enano" name="enano" />
+		<field field_ref="enanom" name="enanom" />
+		<field field_ref="ediat" name="ediat" />
+		<field field_ref="ediatm" name="ediatm" />
+		<field field_ref="Tchl"  name="Tchl" /-->
+	<!--************************************************************ -->
+		<!--field field_ref="hmld_phy"      name="hmld"                 /-->
+
+	  <!--****************/   Silicate dissolution /******************** -->
+		<!--field field_ref="zfacsi"  />
+		<field field_ref="zfacsib"  /-->
+		<!--field field_ref="dep"     /-->
+		<!--field field_ref="zosil"    />
+		<field field_ref="zsiremin" />
+		<field field_ref="zdep" />
+		<field field_ref="zdep_cond" /-->
+
+          <!--****************/   Nanophytoplankton  /******************** -->
+
+		<!--field field_ref="SIZEN"  name="sizen" /-->
+		<!--field field_ref="SIZENA"  name="sizena" /-->
+
+		<!--field field_ref="LNnut"   name="xlimphy" />
+		<field field_ref="phy_zlim1" name="zlim1_phy" />
+		<field field_ref="phy_zlim2" name="zlim2_phy" />
+		<field field_ref="phy_zlim4" name="zlim4_phy" /-->
+		<!--field field_ref="zconc0n"  name="zconcno3"  /-->
+		<!--field field_ref="Mumax"    name="zprmax" /-->
+		<!--field field_ref="phy_zrespp"  name="zrespp"  />
+		<field field_ref="phy_ztortp"   name="ztortp" /-->
+                <!--field field_ref="phy_zcompaph"  name="zcompaph" /-->
+
+		<!--field field_ref="MuN"  name="zpr_phy" />
+                
+		<field field_ref="PPNEWN"  name="zpronew_phy" />
+		<field field_ref="PPPHYN"  name="zprorca_phy" />
+		<field field_ref="PFeN"  name="zprofe_phy" /-->
+                <!--field field_ref="Mumax"  name="zprmax" /-->
+
+		<!--field field_ref="enano" name="enano" /-->
+		<!--field field_ref="phy_etot_w_m_diag" name="enanom" />
+		<field field_ref="phy_consfe3"  name="consfe3_phy" />
+		<field field_ref="phy_plig_diag"  name="plig_phy" /-->
+
+
+		<!--field field_ref="zval"  name="zval_phy" />
+                <field field_ref="xfracal"  name="xfracal_phy"/-->
+		<!--field field_ref="phy_zpislopead"  name="zpislopead" /-->
+
+		<!--field field_ref="zfecmN"  name="zfecm_phy" />
+		<field field_ref="zprmaxN"  name="zprmax_phy" />
+		<field field_ref="xno3N"  name="xno3_phy" />
+		<field field_ref="xnh4N"  name="xnh4_phy" />
+		<field field_ref="xferN"  name="xfer_phy" />
+		<field field_ref="zmaxN"  name="zmax_phy" />
+
+		<field field_ref="concnfe"  name="concfe_phy" />
+		<field field_ref="zbiron"  name="zbiron_phy" /-->
+
+		<!--field field_ref="phy_zlim1_bis"  name="zlim1_bis_phy"/-->
+
+	<!--****************/   Diatoms      /******************** -->
+                
+		<!--field field_ref="zgrazdc"  name="zgrazd" /-->
+		<!--field field_ref="SIZED"  name="sized" /-->
+		<!--field field_ref="SIZEDA"  name="sizeda" /-->
+		<!--field field_ref="LDnut"   name="xlimdia" /-->
+		<!--field field_ref="ztortp2"  name="ztortp" />
+		<field field_ref="zrespp2"   name="zrespp" /-->
+		<!--field field_ref="MuD"  name="zpr_dia" />
+                <field field_ref="PPNEWD"  name="zpronew_dia" />
+		<field field_ref="PPPHYD"  name="zprorca_dia" />
+		<field field_ref="PFeD"  name="zprofe_dia" /-->
+		<!--field field_ref="PBSi"     name="zysopt" /-->
+		<!--field field_ref="xlimsi"   /-->
+		<!--field field_ref="zlim1" />
+		<field field_ref="zlim2" />
+		<field field_ref="zlim3" />
+		<field field_ref="zlim4"  /-->
+		<!--field field_ref="zsilfac"  />
+		<field field_ref="zratiosi" />
+		<field field_ref="zmaxsi"   /-->
+	        <!--field field_ref="zval"  name="zval_dia"/>
+
+                <field field_ref="zfecmD"  name="zfecm_dia" />
+		<field field_ref="zprmaxD"  name="zprmax_dia" />
+		<field field_ref="xno3D"  name="xno3_dia" />
+		<field field_ref="xnh4D"  name="xnh4_dia" />
+		<field field_ref="xferD"  name="xfer_dia" />
+		<field field_ref="zmaxD"  name="zmax_dia" />
+
+		<field field_ref="concdfe"  name="concfe_dia" />
+		<field field_ref="zbiron"   name="zbiron_dia" /-->
+
+		<!--field field_ref="dia_zcompadi"  name="zcompadi"  />
+		<field field_ref="zlim1_bis"     name="zlim1_dia"/-->
+
+	
+	<!--****************/   microzooplankton      /******************** -->
+		<!--field field_ref="zgrazdc" name="zgrazd" />
+		<field field_ref="zfood"       />
+		<field field_ref="zfoodlim"    />
+		<field field_ref="ztmp2"       />
+	        <field field_ref="zgraznc"     />
+		<field field_ref="zgrazpoc"    />
+		<field field_ref="zgraze"    />
+
+			<field field_ref= "zoo_zgrasrat"    name = "zgrasrat_zoo"/>
+			<field field_ref= "zoo_zgrasratn"   name = "zgrasratn_zoo" />
+			<field field_ref= "zoo_zepshert"    name= "zepshert_zoo" />
+		<field field_ref= "zoo_zepsherv" name="zepsherv_zoo" /-->
+
+			<!--field field_ref="GRAZ1"   name="zgraztotc_zoo" />
+		        <field field_ref="zgrasratf_zoo"  name="zgrasrat_zoo" />
+                        <field field_ref="zgraztotf_zoo"  name="zgraztotf_zoo" /-->
+
+
+
+
+	<!--****************/   mesoozooplankton      /******************** -->
+
+		<!--field field_ref="zgraznc" name="graz2p" /-->
+		<!--field field_ref="zgrazdc" name="graz2d" /-->
+		<!--field field_ref="quotan_mes" name="quotan" /-->
+		<!--field field_ref="zgraze2"     name="zgraze" />
+		<field field_ref="ztmp3"       name="ztmp2" />
+		<field field_ref="zfoodlim2"   name="zfoodlim" />
+		<field field_ref="zdiffdn"   name="zdiffdn" />
+		<field field_ref="zcompaph_mes"    name="zcompaph" />
+		<field field_ref="zcompadi_mes"    name="zcompadi" />
+		<field field_ref="ztmp1"   name="ztmp1" /-->
+		<!--field field_ref="ztmp2_mes"   name="ztmp3" /-->
+		<!--field field_ref="ztmp4"   name="ztmp4" /-->
+		<!--field field_ref="zcompapoc_mes"    name="zcompapoc" />
+		<field field_ref="zgrazpoc_mes"   name="zgrazpoc" /-->
+		<!--field field_ref="zgrasratn_mes"  name="zgrasratn" /-->
+		<!--field field_ref="zepsherv_mes"   name="zepsherv"  /-->
+		<!--field field_ref="zepsherf_mes"   name="zepsherf"  /-->
+		<!--field field_ref="zepshert_mes"   name="zepshert"  /-->
+		<!--field field_ref="zepsherq_mes"   name="zepsherq"  />
+		<field field_ref="zbeta_mes"   name="zbeta"  />
+		<field field_ref="zgrazpof_mes"   name="zgrazpof"  /-->
+		<!--field field_ref="zproport_mes"   name="zproport"  />
+		<field field_ref="GRAZ2"   name="zgraztotc" /-->
+		<!--field field_ref="zgrasratf_mes"  name="zgrasratf" />
+		<field field_ref="zgraztotf_mes"  name="zgraztotf" />
+		<field field_ref="zgraztotc_mes"  name="zgraztotc" />
+		<field field_ref="zgraztotn_mes"  name="zgraztotn" /-->
+
+		<!--field field_ref="mes_sized_diag"    name="sized" />
+		<field field_ref="mes_sizen_diag"    name="sizen" /-->
+
+	
+		<!--field field_ref="consfe3"    name="consfe3_sum"  /-->
+
+		<!--field field_ref="strn"      name="strn"   /-->
+
+
+	<!--****************/   Iron      /******************** -->
+		<field field_ref="Fe3"      />
+		<field field_ref="FeL1"      />
+		<field field_ref="TL1"      />
+		<field field_ref="FESCAV"      />
+		<field field_ref="FECOLL"      />
+
+		<field field_ref="zkeq"   />
+		<field field_ref="zklight"    />
+		<field field_ref="zconsfe"    />
+		<field field_ref="za1"  />
+		<field field_ref="ztfe"  />
+
+		<field field_ref="plig"  />
+		<field field_ref="zdust"  />
+
+	<!--****************/   Nitrogen fixation      /******************** -->
+		<!--field field_ref="nitrpot" />
+		<field field_ref="zmudia" /-->
+
+	<!--****************/   sediment      /******************** -->
+
+		<!--field field_ref="Ironsed"  name="ironsed" /-->
+
+	<!--****************/   POC      /******************** -->
+
+		<!--field field_ref="REMINP"  name="zremi_poc" />
+		<field field_ref="REMING"  name="zremi_goc" />
+
+		<field field_ref="ztremint_poc"  name="ztremint_poc" />
+		<field field_ref="ztremint_goc"  name="ztremint_goc" /-->
+
+
+		<!--field id="pom_alpha1"  />
+		<field id="pom_alpha2"  />
+		<field id="pom_alpha3"  />
+		<field id="pom_alpha4"  />
+		<field id="pom_alpha5"  />
+		<field id="pom_alpha6"  />
+		<field id="pom_alpha7"  />
+		<field id="pom_alpha8"  />
+		<field id="pom_alpha9"  />
+		<field id="pom_alpha10"  />
+		<field id="pom_alpha11"  />
+		<field id="pom_alpha12"  />
+		<field id="pom_alpha13"  />
+		<field id="pom_alpha14"  />
+		<field id="pom_alpha15"  />
+
+		<field id="gom_alpha1"  />
+		<field id="gom_alpha2"  />
+		<field id="gom_alpha3"  />
+		<field id="gom_alpha4"  />
+		<field id="gom_alpha5"  />
+		<field id="gom_alpha6"  />
+		<field id="gom_alpha7"  />
+		<field id="gom_alpha8"  />
+		<field id="gom_alpha9"  />
+		<field id="gom_alpha10"  />
+		<field id="gom_alpha11"  />
+		<field id="gom_alpha12"  />
+		<field id="gom_alpha13"  />
+		<field id="gom_alpha14"  />
+		<field id="gom_alpha15"  /-->
+
+
+		<!--field field_ref="gom_prod"  />
+		<field field_ref="pom_prod"  />
+		<field field_ref='gom_zpoc'  />
+		<field field_ref='pom_zpoc'  />
+		<field field_ref='gom_expz'  />
+		<field field_ref='pom_expz'  /-->
+
+		<!--****************/   OXYGEN      /******************** -->
+			<!--field field_ref="Oflx" />
+			<field field_ref="zfld16" />
+			<field field_ref="zflu16" /-->
+
+
+	</file>
+
+      </file_group>
+
+      
+      <file_group id="3d" output_freq="3d"  output_level="10" enabled=".TRUE."/> <!-- 3d files -->
+      <file_group id="5d" output_freq="5d"  output_level="10" enabled=".TRUE."/> <!-- 5d files -->   
+      <file_group id="1m" output_freq="1mo" output_level="10" enabled=".TRUE."/> <!-- real monthly files -->
+      <file_group id="2y"  output_freq="2y" output_level="10" enabled=".TRUE."/> <!-- real 2y files -->
+      <file_group id="5y"  output_freq="5y" output_level="10" enabled=".TRUE."/> <!-- real 5y files -->
+      <file_group id="10y" output_freq="10y" output_level="10" enabled=".TRUE."/> <!-- real 10y files -->
+
+   </file_definition>
+    
